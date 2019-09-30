@@ -40,7 +40,8 @@ function nexteuropa_varnish_rules_action_flush($wrapper, $string) {
   $type = $wrapper->type();
   $entity = $wrapper->value();
   $info = $wrapper->getPropertyInfo();
-
+  $item = FALSE;
+  
   foreach ($info as $key => $field) {
     $definition = field_info_field($key);
 
