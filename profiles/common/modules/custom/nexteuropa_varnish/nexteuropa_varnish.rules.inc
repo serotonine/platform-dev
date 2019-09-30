@@ -42,14 +42,14 @@ function nexteuropa_varnish_rules_action_flush($wrapper, $string) {
   $info = $wrapper->getPropertyInfo();
 
   foreach ($info as $key => $field) {
-      $definition = field_info_field($key);
+    $definition = field_info_field($key);
 
-      if ($definition['type'] == 'entityreference' || $definition['type'] == 'taxonomy_term_reference') {
-        foreach ($wrapper->{$key} as $item) {
-          //dpm($item->value());
-          // TODO: check and clear paths here
-        }
+    if ($definition['type'] == 'entityreference' || $definition['type'] == 'taxonomy_term_reference') {
+      foreach ($wrapper->{$key} as $item) {
+        // dpm($item->value());
+        // TODO: check and clear paths here.
       }
+    }
   }
 
   switch ($type) {
@@ -57,8 +57,9 @@ function nexteuropa_varnish_rules_action_flush($wrapper, $string) {
       $updated_node_paths = _nexteuropa_varnish_get_updated_node_paths($entity);
       _nexteuropa_varnish_process_paths_sending($entity, $updated_node_paths);
       break;
+
     case 'file':
-      //_nexteuropa_varnish_flush_file($entity);
+      // _nexteuropa_varnish_flush_file($entity);
       break;
   }
 
