@@ -52,7 +52,7 @@ services:
       - DISPLAY=:99
       - SE_OPTS=-debug
     pull: true
-    command: "phantomjs --debug=true --webdriver=8910 --ignore-ssl-errors=true --ssl-protocol=any"
+    command: "phantomjs --debug=true --webdriver=selenium:8910"
     when:
       event: [ push, pull_request, tag ]
 
