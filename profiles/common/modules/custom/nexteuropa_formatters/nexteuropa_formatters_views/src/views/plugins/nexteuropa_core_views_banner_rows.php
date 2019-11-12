@@ -17,8 +17,9 @@ class nexteuropa_formatters_views_banner_rows extends views_plugin_row {
    */
   public function option_definition() {
     $options = parent::option_definition();
-    $options['quote'] = array('default' => '');
-    $options['author'] = array('default' => '');
+    $options['description'] = array('default' => '');
+    $options['link'] = array('default' => '');
+    $options['image'] = array('default' => '');
     return $options;
   }
 
@@ -39,24 +40,32 @@ class nexteuropa_formatters_views_banner_rows extends views_plugin_row {
       }
     }
 
-    $form['quote'] = array(
+    $form['description'] = array(
       '#type' => 'select',
       '#required' => TRUE,
-      '#title' => t('Quote'),
+      '#title' => t('Description'),
       '#description' => t('Body of the quote, needs to be a text field.'),
       '#options' => $fields,
-      '#default_value' => $this->options['quote'],
+      '#default_value' => $this->options['description'],
     );
 
-    $form['author'] = array(
+    $form['link'] = array(
       '#type' => 'select',
       '#required' => TRUE,
-      '#title' => t('Author'),
-      '#description' => t('Author of the quote, needs to be a text field.'),
+      '#title' => t('Link'),
+      '#description' => t('Body of the quote, needs to be a text field.'),
       '#options' => $fields,
-      '#default_value' => $this->options['author'],
+      '#default_value' => $this->options['link'],
     );
 
+    $form['image'] = array(
+      '#type' => 'select',
+      '#required' => TRUE,
+      '#title' => t('Image'),
+      '#description' => t('Author of the quote, needs to be a text field.'),
+      '#options' => $fields,
+      '#default_value' => $this->options['image'],
+    );
   }
 
   /**
@@ -80,8 +89,9 @@ class nexteuropa_formatters_views_banner_rows extends views_plugin_row {
 
     $output = theme(array($theme),
       array(
-        'quote' => $this->get_field($row_index, $this->options['quote']),
-        'author' => $this->get_field($row_index, $this->options['author']),
+        'image' => $this->get_field($row_index, $this->options['image']),
+        'link' => $this->get_field($row_index, $this->options['link']),
+        'description' => $this->get_field($row_index, $this->options['description']),
       ));
     $row_index++;
     return $output;
@@ -99,6 +109,7 @@ class nexteuropa_formatters_views_banner_rows extends views_plugin_row {
     if (empty($this->view->style_plugin) || !is_object($this->view->style_plugin) || empty($field_id)) {
       return '';
     }
+
     return $this->view->style_plugin->get_field($index, $field_id);
   }
 }

@@ -44,11 +44,12 @@ function nexteuropa_formatters_views_views_plugins() {
         'type' => 'normal',
       ),
       'nexteuropa_formatters_views_banner_rows' => array(
-        'title' => t('Europa banner'),
+        'title' => t('Europa banner hero'),
         'help' => t('Choose fields to display in the Europa banner component.'),
         'handler' => 'nexteuropa_formatters_views_banner_rows',
         'uses fields' => TRUE,
         'uses options' => TRUE,
+        'uses row class' => TRUE,
         'type' => 'normal',
       ),
     ),

@@ -9,16 +9,12 @@
  * - $author: string or a render array.
  */
 ?>
-
-<div class="banner">
-  <div class="banner__quote">
-    <blockquote class="blockquote blockquote--small">
-      <span class="blockquote__open"></span>
-        <?php print render($quote); ?>
-        <span class="blockquote__close"></span>
-    </blockquote>
+<div class="ecl-banner ecl-banner--hero">
+  <?php print $image; ?>
+  <div class="ecl-banner__content">
+    <h3 class="ecl-heading ecl-heading--h3 ecl-banner__title">
+      <?php print $link; ?>
+    </h3>
+    <p class="ecl-paragraph ecl-banner__description"><?php print $description; ?></p>
   </div>
-  <span class="banner__author">
-    <?php print render($author); ?>
-  </span>
 </div>
