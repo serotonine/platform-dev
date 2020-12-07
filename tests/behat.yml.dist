@@ -95,6 +95,7 @@ default:
             unexpectedAlertBehaviour: accept
             goog:chromeOptions:
               w3c: false
+              window-size: 1920,1080
       base-url: '{{ behat.base_url }}'
       files_path: '{{ platform.build.dir }}'
       ajax_timeout: 30
